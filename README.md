@@ -1,120 +1,168 @@
-# Sistem Informasi Supermarket
+# Sistem Informasi Manajemen Supermarket
 
-Aplikasi Sistem Informasi Manajemen untuk Supermarket berbasis Laravel 10.
+Aplikasi web berbasis Laravel 10 untuk mengelola operasional supermarket secara digital. Sistem ini dirancang untuk memudahkan pengelolaan produk, penjualan, stok, dan laporan keuangan dalam satu platform terintegrasi.
 
-## Fitur
+## Tentang Aplikasi
 
-- **Master Data**: Manajemen Produk dan Supplier
-- **Purchase Order**: Pembuatan dan penerimaan PO dari supplier
-- **Stock Management**: Tracking stock, stock adjustment, dan batch tracking
-- **Point of Sale (POS)**: Sistem kasir dengan scan barcode
-- **Retur**: Proses retur penjualan
-- **Laporan**: Laporan penjualan dan stock
-- **Backup**: Backup database
-- **Role-based Access Control**: Admin, Kasir, Gudang, Manager
+Aplikasi ini dibuat untuk membantu mengelola berbagai aspek operasional supermarket, mulai dari manajemen produk, proses pembelian dari supplier, pengelolaan stok, hingga sistem kasir untuk transaksi penjualan. Dengan sistem role-based access control, setiap pengguna memiliki akses sesuai dengan tugas dan tanggung jawabnya.
 
-## Requirements
+## Fitur Utama
 
-- PHP >= 8.1
-- Composer
-- MySQL/MariaDB
-- Node.js & NPM
+### 🛍️ Master Data
+Kelola data produk dan supplier dengan mudah. Fitur ini memungkinkan Anda menambahkan, mengedit, dan menghapus produk beserta informasi lengkapnya seperti SKU, barcode, harga beli, harga jual, dan stok. Selain itu, Anda juga bisa mengelola data supplier yang bekerja sama dengan supermarket.
 
-## Instalasi
+### 📦 Purchase Order (PO)
+Sistem pembelian yang terstruktur untuk memesan produk dari supplier. Buat purchase order, terima barang yang datang, dan sistem akan otomatis mengupdate stok produk di gudang.
 
-1. Clone atau extract project ke folder lokal
-2. Masuk ke folder project:
-   ```bash
-   cd supermarket-system
-   ```
+### 📊 Stock Management
+Pantau stok produk secara real-time. Sistem ini mencatat setiap pergerakan stok, baik masuk maupun keluar, sehingga Anda selalu tahu kondisi stok terkini. Ada juga fitur stock adjustment untuk koreksi stok jika diperlukan.
 
-3. Install dependencies:
-   ```bash
-   composer install
-   npm install
-   ```
+### 💰 Point of Sale (POS)
+Sistem kasir yang praktis dan cepat. Scan barcode produk langsung dari barcode scanner, tambahkan ke keranjang, hitung total, dan cetak invoice. Sistem ini juga mendukung diskon dan berbagai metode pembayaran (cash, debit, credit).
 
-4. Copy file `.env.example` menjadi `.env`:
-   ```bash
-   copy .env.example .env
-   ```
-   (Windows) atau
-   ```bash
-   cp .env.example .env
-   ```
-   (Linux/Mac)
+### 🔄 Retur Penjualan
+Proses retur barang yang sudah terjual dengan mudah. Pilih transaksi penjualan yang akan diretur, tentukan item yang diretur, dan sistem akan otomatis mengembalikan stok ke gudang.
 
-5. Generate application key:
-   ```bash
-   php artisan key:generate
-   ```
+### 📈 Laporan
+Lihat laporan penjualan dan stok untuk analisis bisnis. Laporan penjualan menampilkan ringkasan transaksi dalam periode tertentu, sedangkan laporan stok memberikan informasi tentang kondisi stok semua produk.
 
-6. Konfigurasi database di file `.env`:
-   ```
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=supermarket_db
-   DB_USERNAME=root
-   DB_PASSWORD=
-   ```
+### 💾 Backup Database
+Fitur backup otomatis untuk melindungi data penting. Buat backup database kapan saja dan download file backup untuk disimpan sebagai cadangan.
 
-7. Buat database `supermarket_db` di MySQL
+## Persyaratan Sistem
 
-8. Jalankan migrations dan seeders:
-   ```bash
-   php artisan migrate:fresh --seed
-   ```
+Sebelum menginstall aplikasi ini, pastikan komputer Anda sudah terinstall:
 
-9. Compile assets:
-   ```bash
-   npm run dev
-   ```
+- **PHP** versi 8.1 atau lebih tinggi
+- **Composer** untuk mengelola dependencies PHP
+- **MySQL** atau **MariaDB** sebagai database
+- **Node.js** dan **NPM** untuk mengelola assets frontend
 
-10. Jalankan server:
-    ```bash
-    php artisan serve
-    ```
+## Cara Install
 
-11. Buka browser: `http://localhost:8000`
+### 1. Clone atau Download Project
+Jika menggunakan Git, clone repository ini:
+```bash
+git clone https://github.com/YOUR_USERNAME/REPO_NAME.git
+cd supermarket-system
+```
 
-## Login Default
+Atau download dan extract file ZIP ke folder lokal Anda.
 
-- **Admin**: 
-  - Email: `admin@example.com`
-  - Password: `password123`
+### 2. Install Dependencies
+Jalankan perintah berikut untuk menginstall semua package yang dibutuhkan:
 
-- **Kasir**: 
-  - Email: `kasir@example.com`
-  - Password: `password123`
+```bash
+composer install
+npm install
+```
 
-- **Gudang**: 
-  - Email: `gudang@example.com`
-  - Password: `password123`
+### 3. Setup Environment
+Copy file `.env.example` menjadi `.env`:
+```bash
+# Windows
+copy .env.example .env
+
+# Linux/Mac
+cp .env.example .env
+```
+
+Kemudian generate application key:
+```bash
+php artisan key:generate
+```
+
+### 4. Konfigurasi Database
+Buka file `.env` dan sesuaikan konfigurasi database Anda:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=supermarket_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Jangan lupa buat database `supermarket_db` di MySQL terlebih dahulu.
+
+### 5. Jalankan Migration dan Seeder
+Setup database dengan menjalankan:
+```bash
+php artisan migrate:fresh --seed
+```
+
+Perintah ini akan membuat semua tabel yang diperlukan dan mengisi data awal seperti role pengguna dan akun default.
+
+### 6. Compile Assets
+Compile file CSS dan JavaScript:
+```bash
+npm run dev
+```
+
+Atau untuk production:
+```bash
+npm run build
+```
+
+### 7. Jalankan Server
+Start development server:
+```bash
+php artisan serve
+```
+
+Aplikasi akan berjalan di `http://localhost:8000`
+
+## Akun Login Default
+
+Setelah menjalankan seeder, Anda bisa login menggunakan akun berikut:
+
+### 👤 Administrator
+- **Username**: `Adminonly`
+- **Password**: `khususadmin`
+- **Akses**: Full access ke semua fitur
+
+### 💵 Kasir
+Tersedia 3 akun kasir dengan password yang sama:
+- **Username**: `Ferdi` | **Password**: `kasir123`
+- **Username**: `Dudung` | **Password**: `kasir123`
+- **Username**: `Farrel` | **Password**: `kasir123`
+- **Akses**: POS, penjualan, dan retur
+
+### 📦 Staff Gudang
+- **Username**: `Gudang1`
+- **Password**: `gudang123`
+- **Akses**: Purchase order, stock management, dan stock adjustment
+
+**Catatan Penting**: Setelah login pertama kali, sangat disarankan untuk mengganti password default demi keamanan akun Anda.
 
 ## Struktur Database
 
-### Tabel Utama:
-- `roles` - Role pengguna
-- `users` - Data pengguna
-- `suppliers` - Data supplier
-- `products` - Data produk
-- `product_batches` - Batch produk (untuk tracking expiry)
-- `purchase_orders` - Purchase order
-- `purchase_items` - Item dalam PO
-- `sales` - Data penjualan
-- `sale_items` - Item dalam penjualan
-- `stock_movements` - History pergerakan stock
-- `returns` - Data retur
-- `return_items` - Item retur
-- `backups` - Data backup
+Aplikasi ini menggunakan beberapa tabel utama untuk menyimpan data:
+
+- **roles** - Menyimpan data role pengguna (Admin, Kasir, Gudang, Manager)
+- **users** - Data pengguna beserta username dan password
+- **suppliers** - Informasi supplier yang bekerja sama
+- **products** - Data produk lengkap dengan harga dan stok
+- **product_batches** - Tracking batch produk untuk produk yang memiliki expiry date
+- **purchase_orders** - Data purchase order dari supplier
+- **purchase_items** - Detail item dalam setiap purchase order
+- **sales** - Data transaksi penjualan
+- **sale_items** - Detail item yang terjual dalam setiap transaksi
+- **stock_movements** - History semua pergerakan stok (masuk/keluar)
+- **returns** - Data retur penjualan
+- **return_items** - Detail item yang diretur
+- **backups** - Catatan file backup yang pernah dibuat
 
 ## API Endpoints
 
-### GET /api/products?barcode={barcode}
-Mencari produk berdasarkan barcode.
+Aplikasi menyediakan beberapa API endpoint untuk integrasi dengan sistem lain:
 
-**Response:**
+### Mencari Produk berdasarkan Barcode
+```
+GET /api/products?barcode={barcode}
+```
+
+Response:
 ```json
 {
   "id": 1,
@@ -125,10 +173,12 @@ Mencari produk berdasarkan barcode.
 }
 ```
 
-### POST /api/sales
-Membuat transaksi penjualan.
+### Membuat Transaksi Penjualan
+```
+POST /api/sales
+```
 
-**Request Body:**
+Request Body:
 ```json
 {
   "items": [
@@ -144,59 +194,93 @@ Membuat transaksi penjualan.
 }
 ```
 
-**Response:**
+Response:
 ```json
 {
   "success": true,
   "sale_id": 1,
   "invoice_no": "INV-20241113-0001",
-  "total": 110000
+  "total": 110000,
+  "items": [...]
 }
 ```
 
-## Testing API dengan cURL
+**Catatan**: Untuk menggunakan API, Anda perlu login terlebih dahulu dan menggunakan session cookie atau token authentication.
 
-### Test Sales API:
-```bash
-curl -X POST http://localhost:8000/api/sales \
-  -H "Content-Type: application/json" \
-  -H "Cookie: laravel_session=YOUR_SESSION_COOKIE" \
-  -d '{
-    "items": [
-      {
-        "product_id": 1,
-        "qty": 1,
-        "price": 55000
-      }
-    ],
-    "discount": 0,
-    "payment_method": "cash"
-  }'
-```
+## Hak Akses per Role
 
-**Catatan**: Untuk testing API, Anda perlu login terlebih dahulu dan menggunakan session cookie atau menggunakan Postman dengan authentication.
+### Admin
+Memiliki akses penuh ke semua fitur:
+- Master data (Produk & Supplier)
+- Laporan penjualan dan stok
+- Backup database
+- Semua fitur kasir dan gudang
 
-## File Penting
+### Kasir
+Bertanggung jawab untuk transaksi penjualan:
+- Point of Sale (POS)
+- Proses penjualan
+- Retur penjualan
 
-- **POS View**: `resources/views/sales/pos.blade.php`
-- **Migration Utama**: `database/migrations/2024_01_01_000004_create_products_table.php`
-- **Sales Controller**: `app/Http/Controllers/SalesController.php`
+### Gudang
+Mengelola stok dan pembelian:
+- Purchase Order
+- Stock management
+- Stock adjustment
+- Menerima barang dari supplier
 
-## Role dan Akses
+### Manager
+Fokus pada analisis dan laporan:
+- Laporan penjualan
+- Laporan stok
 
-- **Admin**: Akses penuh (master data, reports, backup)
-- **Kasir**: POS, penjualan, retur
-- **Gudang**: Purchase order, stock management, stock adjustment
-- **Manager**: Laporan penjualan dan stock
+## Tips Penggunaan
 
-## Catatan
+### Keyboard Shortcuts di POS
+Untuk mempercepat proses di halaman POS, gunakan shortcut berikut:
+- **F1** - Fokus ke input barcode
+- **F2** - Proses pembayaran
+- **F3** - Bersihkan keranjang
+- **Esc** - Hapus input barcode
+- **Ctrl/Cmd + Enter** - Proses pembayaran
+- **Enter** - Cari produk (saat di input barcode)
 
-- Pastikan MySQL service berjalan sebelum menjalankan migrations
-- Untuk production, set `APP_DEBUG=false` di `.env`
-- Backup database menggunakan mysqldump (pastikan tersedia di PATH)
-- Barcode scanner bekerja sebagai keyboard input (Enter untuk scan)
+### Barcode Scanner
+Barcode scanner bekerja seperti keyboard. Setelah scan, tekan Enter atau biarkan scanner mengirimkan Enter secara otomatis untuk menambahkan produk ke keranjang.
+
+### Backup Rutin
+Sangat disarankan untuk membuat backup database secara rutin, terutama sebelum melakukan update atau perubahan besar pada sistem.
+
+## Troubleshooting
+
+### Error "Call to a member function parameters() on null"
+Error ini sudah diperbaiki dengan menghapus SubstituteBindings dari global middleware. Jika masih muncul, pastikan semua route sudah terdaftar dengan benar.
+
+### Database Connection Error
+Pastikan:
+- MySQL service sedang berjalan
+- Konfigurasi database di `.env` sudah benar
+- Database sudah dibuat
+- Username dan password MySQL sudah sesuai
+
+### Backup Gagal
+Pastikan `mysqldump` sudah terinstall dan tersedia di PATH sistem. Untuk Windows, biasanya sudah termasuk dalam instalasi MySQL.
+
+## Teknologi yang Digunakan
+
+- **Backend**: Laravel 10
+- **Frontend**: Bootstrap 5, JavaScript (Vanilla)
+- **Database**: MySQL/MariaDB
+- **Icons**: Bootstrap Icons
 
 ## Lisensi
 
-Project ini dibuat untuk keperluan tugas kuliah.
+Project ini dibuat untuk keperluan tugas kuliah Sistem Informasi Manajemen.
 
+## Kontributor
+
+Dikembangkan sebagai bagian dari pembelajaran dan implementasi sistem informasi manajemen untuk operasional supermarket.
+
+---
+
+**Selamat menggunakan!** Jika ada pertanyaan atau menemukan bug, silakan buat issue di repository ini.
