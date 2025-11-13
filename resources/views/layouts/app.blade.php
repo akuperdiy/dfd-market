@@ -362,6 +362,26 @@
             </div>
         @endif
         @yield('content')
+        
+        <!-- Footer -->
+        <footer class="mt-5 py-3 border-top">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <small class="text-muted">
+                            &copy; {{ date('Y') }} DFD MARKET - Sistem Informasi Manajemen Supermarket
+                        </small>
+                        <br>
+                        <small class="text-muted">
+                            Dibuat oleh: 
+                            <span class="ms-1">Muhammad Ferdiansyah (NIM: 231011403662)</span> | 
+                            <span class="ms-1">Muhammad Farrel Hilmi (NIM: 231011402000)</span> | 
+                            <span class="ms-1">Aqila Adam (NIM: 231011402782)</span>
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <!-- Toast Container -->
