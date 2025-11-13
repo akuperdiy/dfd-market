@@ -77,11 +77,27 @@ class SalesController extends Controller
 
             DB::commit();
 
+            $sale->load(['items.product', 'cashier']);
+
             return response()->json([
                 'success' => true,
                 'sale_id' => $sale->id,
                 'invoice_no' => $sale->invoice_no,
                 'total' => $finalTotal,
+                'subtotal' => $total,
+                'discount' => $discount,
+                'payment_method' => $sale->payment_method,
+                'customer_name' => $sale->customer_name,
+                'date' => $sale->created_at->format('d/m/Y H:i:s'),
+                'cashier_name' => $sale->cashier->name,
+                'items' => $sale->items->map(function ($item) {
+                    return [
+                        'name' => $item->product->name,
+                        'qty' => $item->qty,
+                        'price' => $item->price,
+                        'subtotal' => $item->qty * $item->price,
+                    ];
+                }),
             ]);
         } catch (\Exception $e) {
             DB::rollBack();

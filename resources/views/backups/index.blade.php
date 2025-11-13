@@ -5,9 +5,11 @@
 @section('content')
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h2>Backup Database</h2>
-    <form method="POST" action="{{ route('backups.create') }}" class="d-inline">
+    <form method="POST" action="{{ route('backups.create') }}" class="d-inline show-loading" onsubmit="showLoading('Membuat backup database...')">
         @csrf
-        <button type="submit" class="btn btn-primary">Buat Backup</button>
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-database-check me-2"></i>Buat Backup
+        </button>
     </form>
 </div>
 
@@ -25,7 +27,9 @@
                 <td>{{ $backup->filename }}</td>
                 <td>{{ $backup->created_at->format('d/m/Y H:i:s') }}</td>
                 <td>
-                    <a href="{{ route('backups.download', $backup->id) }}" class="btn btn-sm btn-primary">Download</a>
+                    <a href="{{ route('backups.download', $backup->id) }}" class="btn btn-sm btn-primary" onclick="showLoading('Mengunduh backup...')">
+                        <i class="bi bi-download me-1"></i>Download
+                    </a>
                 </td>
             </tr>
         @endforeach

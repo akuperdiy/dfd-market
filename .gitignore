@@ -15,4 +15,10 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+/storage/framework/views/*
+!/storage/framework/views/.gitignore
+/storage/logs/*
+!/storage/logs/.gitignore
+/bootstrap/cache/*
+!/bootstrap/cache/.gitignore
 

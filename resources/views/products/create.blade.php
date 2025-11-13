@@ -4,7 +4,7 @@
 
 @section('content')
 <h2>Tambah Produk</h2>
-<form method="POST" action="{{ route('products.store') }}">
+<form method="POST" action="{{ route('products.store') }}" class="show-loading">
     @csrf
     <div class="row">
         <div class="col-md-6">
@@ -58,8 +58,50 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary">Simpan</button>
-    <a href="{{ route('products.index') }}" class="btn btn-secondary">Batal</a>
+    <button type="submit" class="btn btn-primary">
+        <i class="bi bi-save me-2"></i>Simpan
+    </button>
+    <a href="{{ route('products.index') }}" class="btn btn-secondary">
+        <i class="bi bi-x-circle me-2"></i>Batal
+    </a>
 </form>
+
+@push('scripts')
+<script>
+    // Real-time validation feedback
+    document.querySelectorAll('input[required]').forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value.trim() === '' && this.hasAttribute('required')) {
+                this.classList.add('is-invalid');
+            } else {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+        
+        input.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                this.classList.remove('is-invalid');
+                this.classList.add('is-valid');
+            }
+        });
+    });
+    
+    // Auto-format currency
+    const priceInputs = document.querySelectorAll('#cost_price, #sell_price');
+    priceInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (!isNaN(value) && value < 0) {
+                this.setCustomValidity('Harga tidak boleh negatif');
+                this.classList.add('is-invalid');
+            } else {
+                this.setCustomValidity('');
+                this.classList.remove('is-invalid');
+            }
+        });
+    });
+</script>
+@endpush
 @endsection
 

@@ -15,24 +15,41 @@ class UserSeeder extends Seeder
         $kasirRole = Role::where('name', 'kasir')->first();
         $gudangRole = Role::where('name', 'gudang')->first();
 
+        // Administrator
         User::create([
             'name' => 'Administrator',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password123'),
+            'username' => 'Adminonly',
+            'password' => Hash::make('khususadmin'),
             'role_id' => $adminRole->id,
         ]);
 
+        // Kasir - 3 akun
         User::create([
-            'name' => 'Kasir 1',
-            'email' => 'kasir@example.com',
-            'password' => Hash::make('password123'),
+            'name' => 'Ferdi',
+            'username' => 'Ferdi',
+            'password' => Hash::make('kasir123'),
             'role_id' => $kasirRole->id,
         ]);
 
         User::create([
+            'name' => 'Dudung',
+            'username' => 'Dudung',
+            'password' => Hash::make('kasir123'),
+            'role_id' => $kasirRole->id,
+        ]);
+
+        User::create([
+            'name' => 'Farrel',
+            'username' => 'Farrel',
+            'password' => Hash::make('kasir123'),
+            'role_id' => $kasirRole->id,
+        ]);
+
+        // Gudang
+        User::create([
             'name' => 'Staff Gudang',
-            'email' => 'gudang@example.com',
-            'password' => Hash::make('password123'),
+            'username' => 'Gudang1',
+            'password' => Hash::make('gudang123'),
             'role_id' => $gudangRole->id,
         ]);
     }
