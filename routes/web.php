@@ -48,6 +48,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/reports', [ReportController::class, 'salesReport'])->name('reports.sales');
         Route::get('/reports/stock', [ReportController::class, 'stockReport'])->name('reports.stock');
     });
+
+    // Manager routes
+    Route::middleware('role:manager,admin')->group(function () {
+        Route::get('/reports', [ReportController::class, 'salesReport'])->name('reports.sales');
+        Route::get('/reports/stock', [ReportController::class, 'stockReport'])->name('reports.stock');
+    });
 });
 
 require __DIR__.'/auth.php';

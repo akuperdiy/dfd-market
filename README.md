@@ -132,19 +132,11 @@ Tersedia 3 akun kasir dengan password yang sama:
 - **Password**: `gudang123`
 - **Akses**: Purchase order, stock management, dan stock adjustment
 
-**Catatan Penting**: Setelah login pertama kali, sangat disarankan untuk mengganti password default demi keamanan akun Anda.
+### 💼 Manager
+- **Username**: `Manager1`
+- **Password**: `manager123`
+- **Akses**: Laporan penjualan dan stok
 
-## Struktur Database
-
-Aplikasi ini menggunakan beberapa tabel utama untuk menyimpan data:
-
-- **roles** - Menyimpan data role pengguna (Admin, Kasir, Gudang, Manager)
-- **users** - Data pengguna beserta username dan password
-- **suppliers** - Informasi supplier yang bekerja sama
-- **products** - Data produk lengkap dengan harga dan stok
-- **product_batches** - Tracking batch produk untuk produk yang memiliki expiry date
-- **purchase_orders** - Data purchase order dari supplier
-- **purchase_items** - Detail item dalam setiap purchase order
 - **sales** - Data transaksi penjualan
 - **sale_items** - Detail item yang terjual dalam setiap transaksi
 - **stock_movements** - History semua pergerakan stok (masuk/keluar)
@@ -226,6 +218,11 @@ Mengelola stok dan pembelian:
 - Stock management
 - Stock adjustment
 - Menerima barang dari supplier
+
+### Manager
+Fokus pada analisis dan laporan:
+- Laporan penjualan
+- Laporan stok
 
 ### Manager
 Fokus pada analisis dan laporan:

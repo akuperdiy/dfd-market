@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
         $adminRole = Role::where('name', 'admin')->first();
         $kasirRole = Role::where('name', 'kasir')->first();
         $gudangRole = Role::where('name', 'gudang')->first();
+        $managerRole = Role::where('name', 'manager')->first();
 
         // Administrator
         User::create([
@@ -51,6 +52,14 @@ class UserSeeder extends Seeder
             'username' => 'Gudang1',
             'password' => Hash::make('gudang123'),
             'role_id' => $gudangRole->id,
+        ]);
+
+        // Manager
+        User::create([
+            'name' => 'Manager',
+            'username' => 'Manager1',
+            'password' => Hash::make('manager123'),
+            'role_id' => $managerRole->id,
         ]);
     }
 }

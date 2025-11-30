@@ -208,17 +208,6 @@
                                     </a></li>
                                     <li><a class="dropdown-item {{ request()->routeIs('stock.*') ? 'active' : '' }}" href="{{ route('stock.index') }}">
                                         <i class="bi bi-boxes me-2"></i>Stock
-                                    </a></li>
-                                </ul>
-                            </li>
-                        @endif
-
-                        @if(auth()->user()->hasRole('manager') || auth()->user()->hasRole('admin'))
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}" href="{{ route('reports.sales') }}">
-                                    <i class="bi bi-graph-up me-1"></i>Laporan
-                                </a>
-                            </li>
                         @endif
                         @if(auth()->user()->hasRole('admin'))
                             <li class="nav-item">
