@@ -20,8 +20,7 @@ Pantau stok produk secara real-time. Sistem ini mencatat setiap pergerakan stok,
 ### 💰 Point of Sale (POS)
 Sistem kasir yang praktis dan cepat. Scan barcode produk langsung dari barcode scanner, tambahkan ke keranjang, hitung total, dan cetak invoice. Sistem ini juga mendukung diskon dan berbagai metode pembayaran (cash, debit, credit).
 
-### 🔄 Retur Penjualan
-Proses retur barang yang sudah terjual dengan mudah. Pilih transaksi penjualan yang akan diretur, tentukan item yang diretur, dan sistem akan otomatis mengembalikan stok ke gudang.
+
 
 ### 📈 Laporan
 Lihat laporan penjualan dan stok untuk analisis bisnis. Laporan penjualan menampilkan ringkasan transaksi dalam periode tertentu, sedangkan laporan stok memberikan informasi tentang kondisi stok semua produk.
@@ -126,7 +125,7 @@ Tersedia 3 akun kasir dengan password yang sama:
 - **Username**: `Ferdi` | **Password**: `kasir123`
 - **Username**: `Dudung` | **Password**: `kasir123`
 - **Username**: `Farrel` | **Password**: `kasir123`
-- **Akses**: POS, penjualan, dan retur
+- **Akses**: POS, penjualan
 
 ### 📦 Staff Gudang
 - **Username**: `Gudang1`
@@ -149,8 +148,7 @@ Aplikasi ini menggunakan beberapa tabel utama untuk menyimpan data:
 - **sales** - Data transaksi penjualan
 - **sale_items** - Detail item yang terjual dalam setiap transaksi
 - **stock_movements** - History semua pergerakan stok (masuk/keluar)
-- **returns** - Data retur penjualan
-- **return_items** - Detail item yang diretur
+
 - **backups** - Catatan file backup yang pernah dibuat
 
 ## API Endpoints
@@ -220,7 +218,7 @@ Memiliki akses penuh ke semua fitur:
 Bertanggung jawab untuk transaksi penjualan:
 - Point of Sale (POS)
 - Proses penjualan
-- Retur penjualan
+
 
 ### Gudang
 Mengelola stok dan pembelian:
