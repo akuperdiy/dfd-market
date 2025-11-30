@@ -22,6 +22,14 @@ class AuthenticatedSessionController extends Controller
 
         if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']], $request->boolean('remember'))) {
             $request->session()->regenerate();
+            
+            $role = auth()->user()->role->name;
+            if ($role === 'kasir') {
+                return redirect()->intended(route('pos'));
+            } elseif ($role === 'gudang') {
+                return redirect()->intended(route('purchase-orders.index'));
+            }
+            
             return redirect()->intended(route('dashboard'));
         }
 

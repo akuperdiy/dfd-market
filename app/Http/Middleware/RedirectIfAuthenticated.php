@@ -16,7 +16,13 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                $role = Auth::user()->role->name;
+                if ($role === 'kasir') {
+                    return redirect()->route('pos');
+                } elseif ($role === 'gudang') {
+                    return redirect()->route('purchase-orders.index');
+                }
+                return redirect()->route('dashboard');
             }
         }
 

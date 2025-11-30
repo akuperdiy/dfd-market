@@ -170,11 +170,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     @auth
+                        @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('manager'))
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}" href="{{ route('dashboard') }}">
                                 <i class="bi bi-speedometer2 me-1"></i>Dashboard
                             </a>
                         </li>
+                        @endif
                         @if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('kasir'))
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('pos') ? 'active' : '' }}" href="{{ route('pos') }}">
@@ -208,6 +210,9 @@
                                     </a></li>
                                     <li><a class="dropdown-item {{ request()->routeIs('stock.*') ? 'active' : '' }}" href="{{ route('stock.index') }}">
                                         <i class="bi bi-boxes me-2"></i>Stock
+                                    </a></li>
+                                </ul>
+                            </li>
                         @endif
                         @if(auth()->user()->hasRole('admin'))
                             <li class="nav-item">

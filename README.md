@@ -205,29 +205,27 @@ Memiliki akses penuh ke semua fitur:
 - Laporan penjualan dan stok
 - Backup database
 - Semua fitur kasir dan gudang
+- Dashboard monitoring
 
 ### Kasir
-Bertanggung jawab untuk transaksi penjualan:
+Akses terbatas hanya untuk transaksi penjualan:
 - Point of Sale (POS)
-- Proses penjualan
-
+- Tidak memiliki akses ke Dashboard, Gudang, atau Laporan
 
 ### Gudang
-Mengelola stok dan pembelian:
+Akses terbatas hanya untuk pengelolaan stok:
 - Purchase Order
 - Stock management
 - Stock adjustment
 - Menerima barang dari supplier
+- Tidak memiliki akses ke Dashboard, POS, atau Laporan
 
 ### Manager
-Fokus pada analisis dan laporan:
+Akses terbatas hanya untuk monitoring:
+- Dashboard utama
 - Laporan penjualan
 - Laporan stok
-
-### Manager
-Fokus pada analisis dan laporan:
-- Laporan penjualan
-- Laporan stok
+- Tidak memiliki akses ke operasional (POS/Gudang)
 
 ## Tips Penggunaan
 
