@@ -5,7 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseOrderController;
 use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ReturnController;
+
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\SupplierController;
@@ -32,9 +32,6 @@ Route::middleware('auth')->group(function () {
     // Kasir routes
     Route::middleware('role:kasir,admin')->group(function () {
         Route::get('/pos', [SalesController::class, 'posPage'])->name('pos');
-        Route::get('/returns', [ReturnController::class, 'index'])->name('returns.index');
-        Route::get('/returns/create/{sale}', [ReturnController::class, 'createReturn'])->name('returns.create');
-        Route::post('/returns', [ReturnController::class, 'storeReturn'])->name('returns.store');
     });
 
     // Gudang routes

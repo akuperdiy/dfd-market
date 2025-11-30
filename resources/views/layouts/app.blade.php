@@ -212,13 +212,7 @@
                                 </ul>
                             </li>
                         @endif
-                        @if(auth()->user()->hasRole('kasir') || auth()->user()->hasRole('admin'))
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('returns.*') ? 'active' : '' }}" href="{{ route('returns.index') }}">
-                                    <i class="bi bi-arrow-counterclockwise me-1"></i>Retur
-                                </a>
-                            </li>
-                        @endif
+
                         @if(auth()->user()->hasRole('manager') || auth()->user()->hasRole('admin'))
                             <li class="nav-item">
                                 <a class="nav-link {{ request()->routeIs('reports.*') ? 'active' : '' }}" href="{{ route('reports.sales') }}">
@@ -324,14 +318,7 @@
                                 Stock
                             @endif
                         </li>
-                    @elseif(request()->routeIs('returns.*'))
-                        <li class="breadcrumb-item active" aria-current="page">
-                            @if(request()->routeIs('returns.create'))
-                                Buat Retur
-                            @else
-                                Retur
-                            @endif
-                        </li>
+
                     @elseif(request()->routeIs('reports.*'))
                         <li class="breadcrumb-item active" aria-current="page">
                             @if(request()->routeIs('reports.stock'))

@@ -32,9 +32,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Login</button>
                 </form>
-                <div class="mt-3 text-center">
-                    <a href="{{ route('register') }}">Belum punya akun? Daftar</a>
-                </div>
+
             </div>
         </div>
     </div>
